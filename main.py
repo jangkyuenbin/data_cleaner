@@ -56,9 +56,11 @@ def read_and_clean_file_with_report(file_path):
                 cleaned_line = clean_text(line)
                 if line != cleaned_line:
                     block.append("| [{}]({}) | {} | `{}` | `{}` |".format(os.path.basename(file_path), file_path, i, line, cleaned_line))
-        print(template_block1)
-        print("\n".join(block))
-        print(template_block2)
+        if len(block) != 0:
+            print(template_block1)
+            print("\n".join(block))
+            print("\n")
+            print(template_block2)
     except FileNotFoundError:
         print(f"文件 {file_path} 未找到。")
     except Exception as e:
