@@ -1,5 +1,6 @@
 import re
 import sys
+import difflib
 
 
 def clean_text(text):
@@ -18,10 +19,11 @@ def read_and_clean_file(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             lines = list(file.readlines())
-            for line in lines:
+            for i, line in enumerate(lines):
                 line = line.strip()
                 cleaned_line = clean_text(line)
                 if line != cleaned_line:
+                    print("Line: {} | should be: {}".format(i, cleaned_line))
                     print(cleaned_line)
     except FileNotFoundError:
         print(f"文件 {file_path} 未找到。")
@@ -32,7 +34,7 @@ def read_and_clean_file(file_path):
 
 
 if __name__ == '__main__':
-    print('参数个数为:', len(sys.argv), '个参数。')
-    print('参数列表:', str(sys.argv))
+    # print('参数个数为:', len(sys.argv), '个参数。')
+    # print('参数列表:', str(sys.argv))
     file_path = sys.argv[1]
     read_and_clean_file(file_path)
