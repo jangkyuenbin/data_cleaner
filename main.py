@@ -41,7 +41,6 @@ def read_and_clean_file_with_report(file_path):
 |--------|------|----------|--------------|"""
 
     template_block2 = """
-
 **注意**：  
 - 请确保在提交修改前，已经对代码进行了充分的测试，以避免引入新的问题。  
 - 如果对以上修改有任何疑问或需要进一步的讨论，请随时在评论中回复。  
@@ -59,7 +58,6 @@ def read_and_clean_file_with_report(file_path):
         if len(block) != 0:
             print(template_block1)
             print("\n".join(block))
-            print("\n")
             print(template_block2)
     except FileNotFoundError:
         print(f"文件 {file_path} 未找到。")
